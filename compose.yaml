@@ -8,6 +8,8 @@ networks:
 volumes:
   postgres-vol:
     driver: local
+  redis_queue-vol:
+    driver: local
 
 services:
   postgres:
@@ -51,7 +53,7 @@ services:
     restart: always
 
     volumes:
-      - ./redis_queue-vol:/data:rw,z
+      - redis_queue-vol:/data:rw,z
 
     ports:
       - "6379:6379"
