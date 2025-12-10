@@ -1,6 +1,7 @@
 node_modules
 .local
 .env
+.env.*
 dist
 service-account-key.json
 redis_queue-vol

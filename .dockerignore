@@ -1,7 +1,6 @@
 .dockerignore
 Dockerfile*
 docker-compose.yml
-docker-compose.yml
 node_modules
 .git
 .gitignore
@@ -11,4 +10,4 @@ node_modules
 dist/
 .env
 .env.*
-service-account-key.json
+# TODO тут бы добавить /config и service-account-key.json но тогда перестанет работать сборка для prod, и тогда придется решать эту проблему
