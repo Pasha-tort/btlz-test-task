@@ -1,22 +1,13 @@
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: dev
-
-    volumes:
-      - ./:/app:delegated
-      - /app/node_modules
-
     env_file:
       - ./.env
       - ./.env.local
+
+    volumes: []
 
     environment:
       NODE_ENV: development
       POSTGRES_HOST: postgres
       REDIS_HOST: redis_queue
       PORT: ${APP_PORT}
-
-    command: sh -c "npm ci && npm run dev"

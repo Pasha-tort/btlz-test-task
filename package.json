@@ -5,7 +5,7 @@
     "main": "app.js",
     "type": "module",
     "scripts": {
-        "dev": "nodemon --watch src --ext ts --exec tsx src/app.ts",
+        "dev": "nodemon --legacy-watch --watch src --ext ts --exec tsx src/app.ts",
         "watch:build": "tsc --build --force --verbose --watch",
         "knex:dev": "tsx src/utils/knex.ts",
         "build": "tsc --allowJs",
@@ -17,7 +17,7 @@
         "eslint": "eslint",
         "eslint-fix": "eslint --fix",
         "docker-compose:dev": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d",
-        "docker-compose:prod": "docker-compose -f docker-compose.yml up -d"
+        "docker-compose:prod": "docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d"
     },
     "imports": {
         "#*": [
@@ -36,6 +36,7 @@
         "config": "^4.1.1",
         "dotenv": "^16.3.1",
         "googleapis": "^144.0.0",
+        "js-yaml": "^4.1.1",
         "knex": "^3.0.1",
         "log4js": "^6.9.1",
         "pg": "^8.11.3",

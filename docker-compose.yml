@@ -86,7 +86,8 @@ services:
       - ./.env.local
 
     volumes:
-      - ./configs/default.yml:/app/configs/default.yml:ro
+      - ./config:/app/config:ro
+      - ./service-account-key.json:/app/service-account-key.json:ro
 
     environment:
       POSTGRES_HOST: postgres
@@ -95,7 +96,7 @@ services:
       # POSTGRES_USER: ${POSTGRES_USER}
       # POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       PORT: ${APP_PORT}
-      # REDIS_HOST: redis_queue
+      REDIS_HOST: redis_queue
       # REDIS_PORT: ${REDIS_PORT}
       NODE_ENV: production
       # ENDPOINT_TARIFF: ${ENDPOINT_TARIFF}
