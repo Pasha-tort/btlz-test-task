@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY package*.json ./
 
+RUN npm install
+
 FROM node:20-alpine AS deps-prod
 
 WORKDIR /app

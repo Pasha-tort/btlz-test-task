@@ -1,5 +1,10 @@
 services:
   app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: prod
+
     env_file:
       - ./.env
       - ./.env.local

@@ -19,4 +19,4 @@ services:
       REDIS_HOST: redis_queue
       PORT: ${APP_PORT}
 
-    command: sh -c "npm ci && npm run dev"
+    command: sh -c "npm run dev"

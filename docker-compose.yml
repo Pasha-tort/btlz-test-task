@@ -79,7 +79,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      target: prod
 
     env_file:
       - ./.env
