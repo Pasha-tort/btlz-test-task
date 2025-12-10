@@ -7,7 +7,7 @@ services:
     volumes: []
 
     environment:
-      NODE_ENV: development
+      NODE_ENV: production
       POSTGRES_HOST: postgres
       REDIS_HOST: redis_queue
       PORT: ${APP_PORT}
