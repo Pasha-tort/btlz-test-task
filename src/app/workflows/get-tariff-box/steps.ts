@@ -9,12 +9,13 @@ import { DateToYYYYMMDD, getYearFromDate } from "#utils/date/index.js";
 import { writeToSheet } from "#utils/sheet/write-to-sheet.js";
 import { tables } from "#utils/sheet/tables.js";
 import { queueControl } from "./queue-control.js";
+import { ConfigApp } from "#config/app/index.js";
 
 export class GetTariffBoxPendingStep extends WorkflowsStepBase {
     public async handle(job: Job) {
         const date = new Date().toISOString().split("T")[0];
         // если были бы очень большие данные, то надо было тащить данные через стрим, но аднных не так много, стрим излишен здесь
-        const response = await httpRequest<IGetTariffsBoxResponse>(`${env.ENDPOINT_TARIFF}?date=${date}`, "GET", {
+        const response = await httpRequest<IGetTariffsBoxResponse>(`${ConfigApp.endpointTariff}?date=${date}`, "GET", {
             headers: { "Authorization": env.API_KEY_WB },
         }).catch((err) => {
             console.error(err);
@@ -43,7 +44,7 @@ export class GetTariffBoxSaveDBStep extends WorkflowsStepBase {
             queueControl.push(async () => {
                 await writeToSheet(
                     this.tariffToSheetRows(tariffsNowDate || []),
-                    env.SPREADSHEET_ID,
+                    ConfigApp.spreadSheetId,
                     year,
                     tables.tariffs.rangeLiteral,
                     tables.tariffs.eqColumn,

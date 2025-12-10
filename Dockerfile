@@ -1,15 +1,22 @@
-# your node version
+FROM node:20-alpine AS dev
+
+WORKDIR /app
+
+COPY package*.json ./
+
+# ENTRYPOINT ["sh", "-c", "npm install && npm run dev"]
+
 FROM node:20-alpine AS deps-prod
 
 WORKDIR /app
 
 COPY ./package*.json .
 
-RUN npm install --omit=dev
+RUN npm ci --omit=dev
 
 FROM deps-prod AS build
 
-RUN npm install --include=dev
+RUN npm ci --include=dev
 
 COPY . .
 
@@ -23,3 +30,4 @@ COPY --from=build /app/service-account-key.json .
 COPY --from=build /app/package*.json .
 COPY --from=deps-prod /app/node_modules ./node_modules
 COPY --from=build /app/dist ./dist
+COPY --from=build /app/configs ./configs

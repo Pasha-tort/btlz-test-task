@@ -16,7 +16,8 @@
         "prettier-format": "prettier --config .prettierrc.json src/**/*.js --write",
         "eslint": "eslint",
         "eslint-fix": "eslint --fix",
-        "docker-compose:dev": "docker-compose -f compose.yml -f compose.dev.yml up -d"
+        "docker-compose:dev": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d",
+        "docker-compose:prod": "docker-compose -f docker-compose.yml up -d"
     },
     "imports": {
         "#*": [
@@ -32,6 +33,7 @@
     "dependencies": {
         "bullmq": "^5.65.1",
         "commander": "^13.1.0",
+        "config": "^4.1.1",
         "dotenv": "^16.3.1",
         "googleapis": "^144.0.0",
         "knex": "^3.0.1",
@@ -47,6 +49,7 @@
         "@babel/preset-typescript": "^7.24.7",
         "@types/axios": "^0.14.0",
         "@types/bcrypt": "^5.0.2",
+        "@types/config": "^3.3.5",
         "@types/cookie-parser": "^1.4.8",
         "@types/cors": "^2.8.17",
         "@types/dateformat": "^5.0.2",

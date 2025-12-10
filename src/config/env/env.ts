@@ -24,10 +24,10 @@ const envSchema = z.object({
         .string()
         .regex(/^[0-9]+$/)
         .transform((value) => parseInt(value)),
-    ENDPOINT_TARIFF: z.string().nonempty().url(),
+    // ENDPOINT_TARIFF: z.string().nonempty().url(),
     API_KEY_WB: z.string().nonempty(),
-    SPREADSHEET_ID: z.string().nonempty(),
-    CRON_PATTERN: z.string().nonempty(),
+    // SPREADSHEET_ID: z.string().nonempty(),
+    // CRON_PATTERN: z.string().nonempty(),
 });
 
 const env = envSchema.parse({
@@ -40,10 +40,10 @@ const env = envSchema.parse({
     APP_PORT: process.env.APP_PORT,
     REDIS_HOST: process.env.REDIS_HOST,
     REDIS_PORT: process.env.REDIS_PORT,
-    ENDPOINT_TARIFF: process.env.ENDPOINT_TARIFF,
+    // ENDPOINT_TARIFF: process.env.ENDPOINT_TARIFF,
     API_KEY_WB: process.env.API_KEY_WB,
-    SPREADSHEET_ID: process.env.SPREADSHEET_ID,
-    CRON_PATTERN: process.env.CRON_PATTERN,
+    // SPREADSHEET_ID: process.env.SPREADSHEET_ID,
+    // CRON_PATTERN: process.env.CRON_PATTERN,
 });
 
 export default env;

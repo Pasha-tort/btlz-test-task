@@ -1,4 +1,0 @@
-services:
-  app:
-    volumes:
-      - ./config.yml:/app/config.yml:ro

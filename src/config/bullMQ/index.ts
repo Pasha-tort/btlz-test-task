@@ -7,6 +7,8 @@ const connectionSchema = z.object({
     port: z.number(),
 });
 
+console.log(env);
+
 const NODE_ENV = env.NODE_ENV ?? "development";
 const bullMQConfig: Record<typeof NODE_ENV, { connection: ConnectionOptions }> = {
     "development": {

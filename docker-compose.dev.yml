@@ -1,0 +1,22 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+
+    volumes:
+      - ./configs/default.yml:/app/configs/default.yml:ro
+      - ./:/app:delegated
+      - /app/node_modules
+
+    env_file:
+      - ./.env
+      - ./.env.local
+
+    environment:
+      NODE_ENV: development
+      POSTGRES_HOST: postgres
+      PORT: ${APP_PORT}
+
+    command: sh -c "npm ci && npm run dev"
