@@ -1,6 +1,14 @@
 .dockerignore
+Dockerfile*
+docker-compose.yml
 node_modules
+.git
+.gitignore
 .vscode
 .sql
 .idea
-dist
+dist/
+.env
+*.env
+.env.*
+service-account-key.json
