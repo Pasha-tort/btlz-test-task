@@ -15,7 +15,8 @@
         "prettier": "prettier --config .prettierrc.json src/**/*.js --check",
         "prettier-format": "prettier --config .prettierrc.json src/**/*.js --write",
         "eslint": "eslint",
-        "eslint-fix": "eslint --fix"
+        "eslint-fix": "eslint --fix",
+        "docker-compose:dev": "docker-compose -f compose.yml -f compose.dev.yml up -d"
     },
     "imports": {
         "#*": [

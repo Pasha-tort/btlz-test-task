@@ -18,11 +18,12 @@ services:
     image: postgres:16.1-alpine
 
     environment:
-      - PGPORT=${POSTGRES_PORT}
-      - POSTGRES_DB=${POSTGRES_DB}
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      # - PGPORT=${POSTGRES_PORT}
+      # - POSTGRES_DB=${POSTGRES_DB}
+      # - POSTGRES_USER=${POSTGRES_USER}
+      # - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - PGDATA=/var/lib/postgresql/data/pgdata
+    env_file: .env
 
     volumes:
       - postgres-vol:/var/lib/postgresql/data

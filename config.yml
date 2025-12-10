@@ -1,0 +1,4 @@
+app:
+    endpointTariff: "https://common-api.wildberries.ru/api/v1/tariffs/box"
+    spreadSheetId: "1i4Td_JYRuM7pr42aWjQsQ6LMyanNUrOXFd3B3Ij8oKk"
+    cronPattern: "0 */60 * * * *"
